@@ -1,7 +1,7 @@
 // register service worker
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw-test/sw.js', { scope: '/sw-test/' }).then(function(reg) {
+  navigator.serviceWorker.register('sw.js', { scope: '/' }).then(function(reg) {
 
     if(reg.installing) {
       console.log('Service worker installing');
@@ -32,6 +32,7 @@ function imgLoad(imgJSON) {
         arrayResponse[0] = request.response;
         arrayResponse[1] = imgJSON;
         resolve(arrayResponse);
+        console.log('this happened ');
       } else {
         reject(Error('Image didn\'t load successfully; error code:' + request.statusText));
       }
